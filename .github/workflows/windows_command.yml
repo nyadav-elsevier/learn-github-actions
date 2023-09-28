@@ -1,0 +1,16 @@
+name: Windows command
+
+on:
+    push:
+        branches:  ["1-cmd-workflow"]
+
+    workflow_dispatch:
+jobs:
+    windows_command:
+        runs-on:  windows-latest
+        steps:
+            -  name: Disaply .NET version
+               run: dotnet -v
+
+            
+    
