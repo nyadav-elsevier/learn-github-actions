@@ -9,8 +9,15 @@ jobs:
     windows_command:
         runs-on:  windows-latest
         steps:
-            -  name: Disaply .NET version
-               run: dotnet -v
+            -  name: Checkout Repo
+               uses: actions/checkout@v3
+            -  name: Setup DotNet
+               uses: actions/setup-dotnet@v3
+               with:
+                dotnet-version: '4.7.x'
+            -  name: Display Dot Net Version
+               run: dotnet --version
+               
 
             
     
