@@ -36,6 +36,8 @@ jobs:
       - name: Set date
         id: date
         run: |
-          echo "DATE={$(date +'%Y-%m-%d')}"  >> $GITHUB_ENV
+          $DATE= Get-Date -Format g
+          "$DATE" | Out-File -FilePath $env:GITHUB_ENV -Append
       - name: Get Date
-        run: echo $env:DATE
+        run: |
+          Write-Output "$env:DATE"
