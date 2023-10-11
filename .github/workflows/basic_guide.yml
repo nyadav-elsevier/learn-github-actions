@@ -37,7 +37,7 @@ jobs:
         id: set-date
         run: |
           $CURRENT_DATE= Get-Date -UFormat "%m/%d/%Y"
-          "$CURRENT_DATE" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+          "CURRENT_DATE=$CURRENT_DATE" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
       - name: Get Date
         env: 
           CURRENT_DATE: ${{ steps.set-date.outputs.CURRENT_DATE }}
