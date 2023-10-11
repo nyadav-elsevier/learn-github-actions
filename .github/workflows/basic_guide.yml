@@ -34,10 +34,12 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
       - name: Set date
-        id: date
+        id: set-date
         run: |
-          $DATE= Get-Date -Format g
-          "$DATE" | Out-File -FilePath $env:GITHUB_ENV -Append
+          $CURRENT_DATE= Get-Date -Format g
+          "$CURRENT_DATE" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
       - name: Get Date
+        env: 
+          CURRENT_DATE: ${{ steps.set-date.outputs.CURRENT_DATE }}
         run: |
-          Write-Output "$env:DATE"
+          Write-Output "$env:CURRENT_DATE"
