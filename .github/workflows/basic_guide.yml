@@ -33,9 +33,9 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-      - name: Print date
+      - name: Set date
         id: date
         run: |
-          echo Get-Date -Format g  >> $GITHUB_STATE
+          echo "DATE={$(date +'%Y-%m-%d')}"  >> $GITHUB_ENV
       - name: Get Date
-        run: echo ${{env.date}}
+        run: echo $env:DATE
