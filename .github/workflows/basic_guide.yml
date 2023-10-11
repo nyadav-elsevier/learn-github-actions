@@ -36,7 +36,7 @@ jobs:
       - name: Set date
         id: set-date
         run: |
-          $CURRENT_DATE= Get-Date -Format g
+          $CURRENT_DATE= Get-Date -UFormat "%m/%d/%Y"
           "$CURRENT_DATE" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
       - name: Get Date
         env: 
