@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Test Command
 
 # Controls when the workflow will run
 on:
@@ -44,3 +44,9 @@ jobs:
           #CURRENT_DATE: ${{ steps.set-date.outputs.CURRENT_DATE }}
         run: |
           Write-Output "$env:CURRENT_DATE"
+  testing1:
+    runs-on: windows-latest
+    needs: testing
+    steps:
+      - name: Echo command
+        run: echo Dependent job
